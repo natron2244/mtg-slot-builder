@@ -1,7 +1,8 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, FlatList } from 'react-native';
+import { StyleSheet, View, TextInput, FlatList } from 'react-native';
 import * as cardData from './assets/scryfall-default-cards-small.json';
 import _ from "lodash"
+import MSBSearchResult from './src/components/MSBSearchResult.js';
 
 // Move to a card service
 const cardsData = cardData["cards"];
@@ -29,7 +30,7 @@ export default class App extends React.Component {
         <FlatList
         data={filterCards}
         keyExtractor={(item, index) => item.id}
-        renderItem = {({item}) => <Text style={styles.card}>{item.name}</Text>}
+        renderItem = {({item}) => <MSBSearchResult card={item}/>}
         />
         </View>
     );
